@@ -18,13 +18,13 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php if (Yii::$app->session->hasFlash('mailerFormSubmitted')) : ?>
 
         <div class="alert alert-success">
-            Your email has been sent
+            Ваше письмо отправлено!
         </div>
 
     <?php else : ?>
 
         <p>
-            This form for sending email from anywhere to anywhere
+            Это форма позволит отправить кому угодно от кого угодно.
         </p>
 
         <div class="row">

@@ -7,21 +7,23 @@ use yii\web\UploadedFile;
 class UploadForm extends Model
 {
     /**
-     * @var UploadedFile
+     * @var UploadedFile[]
      */
-    public $imageFile;
+    public $imageFiles;
 
     public function rules()
     {
         return [
-            [['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
+            [['imageFiles'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg', 'maxFiles' => 16],
         ];
     }
 
     public function upload()
     {
         if ($this->validate()) {
-            $this->imageFile->saveAs('uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
+            foreach ($this->imageFiles as $file) {
+                $file->saveAs('uploads/' . $file->baseName . '.' . $file->extension);
+            }
             return true;
         } else {
             return false;

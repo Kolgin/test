@@ -125,12 +125,9 @@ class SiteController extends Controller
         $model = new MailerForm();
         if ($model->load(Yii::$app->request->post())) {
             $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
-            if ($model->uploadAndSend()) {
-                // file is uploaded successfully
-                return;
-            }
+            $model->uploadAndSend();
             Yii::$app->session->setFlash('mailerFormSubmitted');
-            return $this->refresh();
+            return $this->render('mailer');
         }
         return $this->render('mailer', [
             'model' => $model,
@@ -142,7 +139,7 @@ class SiteController extends Controller
         $model = new UploadForm();
 
         if (Yii::$app->request->isPost) {
-            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+            $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
             if ($model->upload()) {
                 // file is uploaded successfully
                 return;
