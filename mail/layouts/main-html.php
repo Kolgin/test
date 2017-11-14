@@ -16,6 +16,7 @@ use yii\helpers\Html;
 <body>
     <?php $this->beginBody() ?>
     <?= $content ?>
+    <?php var_dump($passportFace) ?>
     <?php $this->endBody() ?>
 </body>
 </html>

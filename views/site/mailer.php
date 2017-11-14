@@ -9,7 +9,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 
-$this->title = 'Mailer';
+$this->title = 'Анкета оценки имущества';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-contact">
@@ -24,11 +24,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php else : ?>
 
         <p>
-            Это форма позволит отправить кому угодно от кого угодно.
+            Заполните анкету оценки!
         </p>
 
         <div class="row">
-            <div class="col-lg-5">
+            <div class="col-lg-12">
 
                 <?php $form = ActiveForm::begin(['id' => 'mailer-form', 'options' => ['enctype' => 'multipart/form-data']]); ?>
 
@@ -36,11 +36,49 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'fromEmail') ?>
 
-                <?= $form->field($model, 'toEmail') ?>
-
                 <?= $form->field($model, 'subject') ?>
 
-                <?= $form->field($model, 'imageFile')->fileInput() ?>
+                <div class="col-lg-3">
+                    <?= $form->field($model, 'passportFace')->fileInput(); ?>
+                </div>
+                <div class="col-lg-3">
+                    <?= $form->field($model, 'passportMade')->fileInput(); ?>
+                </div>
+                <div class="col-lg-6">
+                    <?= $form->field($model, 'passportRegistration')->fileInput(); ?>
+                </div><br><br><br><br>
+
+                <div class="col-lg-12">
+                    <?= $form->field($model, 'idСodeFace')->fileInput(); ?>
+                </div><br><br><br><br>
+
+                <div class="col-lg-12">
+                    <?= $form->field($model, 'interPassportFace')->fileInput(); ?>
+                </div><br><br><br><br>
+
+                <div class="col-lg-3">
+                    <?= $form->field($model, 'propertyRightsOne')->fileInput(); ?>
+                </div>
+                <div class="col-lg-9">
+                    <?= $form->field($model, 'propertyRightsTwo')->fileInput(); ?>
+                </div><br><br><br><br>
+
+                <div class="col-lg-3">
+                    <?= $form->field($model, 'techPassport1')->fileInput(); ?>
+                </div>
+                <div class="col-lg-3">
+                    <?= $form->field($model, 'techPassport2')->fileInput(); ?>
+                </div>
+                <div class="col-lg-3">
+                    <?= $form->field($model, 'techPassport3')->fileInput(); ?>
+                </div>
+                <div class="col-lg-3">
+                    <?= $form->field($model, 'techPassport4')->fileInput(); ?>
+                </div><br><br><br><br>
+
+                <div class="col-lg-12">
+                    <?= $form->field($model, 'techPassport5')->fileInput(); ?>
+                </div>
 
                 <?= $form->field($model, 'body')->textArea(['rows' => 6]) ?>
 

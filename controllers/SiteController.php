@@ -124,7 +124,19 @@ class SiteController extends Controller
 
         $model = new MailerForm();
         if ($model->load(Yii::$app->request->post())) {
-            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+            $model->passportFace = UploadedFile::getInstance($model, 'passportFace');
+            $model->passportMade = UploadedFile::getInstance($model, 'passportMade');
+            $model->passportRegistration = UploadedFile::getInstance($model, 'passportRegistration');
+            $model->idСodeFace = UploadedFile::getInstance($model, 'idСodeFace');
+            $model->interPassportFace = UploadedFile::getInstance($model, 'interPassportFace');
+            $model->propertyRightsOne = UploadedFile::getInstance($model, 'propertyRightsOne');
+            $model->propertyRightsTwo = UploadedFile::getInstance($model, 'propertyRightsTwo');
+            $model->techPassport1 = UploadedFile::getInstance($model, 'techPassport1');
+            $model->techPassport2 = UploadedFile::getInstance($model, 'techPassport2');
+            $model->techPassport3 = UploadedFile::getInstance($model, 'techPassport3');
+            $model->techPassport4 = UploadedFile::getInstance($model, 'techPassport4');
+            $model->techPassport5 = UploadedFile::getInstance($model, 'techPassport5');
+
             $model->uploadAndSend();
             Yii::$app->session->setFlash('mailerFormSubmitted');
             return $this->render('mailer');
